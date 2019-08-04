@@ -37,7 +37,7 @@ with open(csvpath, newline='') as csvfile:
         #tell where candidate_name is 
         candidate_name = row[2]
 
-        #Khan
+        #vote count for each candidates
         if candidate_name == "Khan":
             khanvotes += 1
         elif candidate_name == "Correy":
@@ -52,6 +52,7 @@ with open(csvpath, newline='') as csvfile:
     correyperc = '{:.3f}'.format((int(correyvotes)/int(totalvotes))*100)
     liperc = '{:.3f}'.format((int(livotes)/int(totalvotes))*100)
     otooleyperc = '{:.3f}'.format((int(otooleyvotes)/int(totalvotes))*100)
+    #figure out winner
     winningvotecount = max(khanvotes,correyvotes,livotes,otooleyvotes)
     if winningvotecount == khanvotes:
         winner.append('Khan')
