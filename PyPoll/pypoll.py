@@ -13,7 +13,6 @@ csvpath = os.path.join("..","election_data.csv")
 
 #variables
 
-candidate_votes = {}
 winner = []
 totalvotes = 0 
 khanvotes = 0
