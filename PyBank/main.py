@@ -50,18 +50,29 @@ with open(csvpath, newline='') as csvfile:
     #calculate average of MoMdelta        
     del MoMdelta[0]
     avgmomdelta = sum(MoMdelta)/(len(months) - 1)
-    
-#print
-totalmonths = len(months)
-print(totalmonths)
-print(totalpl)
-print(avgmomdelta)
-print(highestinc)
-print(highestincdate)
-print(highestdec)
-print(highestdecdate)
-print(MoMdelta)
 
+#define for variable for clean print block    
+totalmonths = len(months)
+#rounding avgmomdelta int
+avgmomdelta = round(avgmomdelta,2)
+
+#prints
+prt = (
+f"Financial Analysis \n"
+f"------------------------- \n"
+f"Total Months: {totalmonths} \n"
+f"Total: ${totalpl} \n"
+f"Average Change: (${avgmomdelta}) \n"
+f"Greatest Incrase in Profits: {highestincdate} (${highestinc}) \n"
+f"Greatest Decrease in Profits: {highestdecdate} (${highestdec}) \n")
+print(prt)
+
+
+#txt file export
+
+outputtxt = os.path.join('.', 'PyBank_Analysis.txt')
+with open(outputtxt, 'w') as txtfile:
+    txtwriter = txtfile.write(prt)
 
 
 
